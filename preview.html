@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS preview</title>
+
+<!--css file -->
+    <link rel="stylesheet" href="./css/gilroy.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stye.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex h-100">
+            <div class="left-container d-none d-lg-block"> <!-- Left container start -->
+                <div class="parent-menu-bar">
+                    <div class="menubar-logo">
+                        <a href="#"><img src="./img/logo-white.png" alt="logo"></a>
+                    </div>
+                    <nav class="parent-menu">
+                        <!-- desktop menu -->
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/dashboard-logo.png" alt="">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/history-logo.png" alt="">
+                                    <span>History</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/wallet-logo.png" alt="">
+                                    <span>Balance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/setting-logo.png" alt="">
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/shortener-logo.png" alt="">
+                                    <span>Link shortener</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="log-out-button mt-auto mb-4">
+                        <a href="#">
+                            <img src="./img/log-out.png" alt="">
+                            <span>Log out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-container"> <!-- Right container start -->
+                <div class="parent-container">
+                    <div class="user-information"> <!-- top user interface -->
+                        <!-- desktop title -->
+                        <div class="welcome-user d-none d-lg-block">
+                            <a href="#" class="back-button">Back</a>
+                            <h4>SMS preview</h4>
+                        </div>
+                        <div class="mobile-menu-bar d-flex d-lg-none">
+                            <div class="mobile-bars">
+                                <button class="mobile-menu-toggle" onclick="openMobileMenuSlider()">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="mobile-logo">
+                                <a href="#"><img src="./img/Logo.png" alt=""></a>
+                            </div>
+                            <div class="mobile-menu-slider">
+                                <button class="mobile-menu-slider-close-btn" onclick="closeMobileMenuSlider()"><img src="./img/close-icon-white.png" alt="close_icon"></button>
+                                <nav class="mobile-navmenu">
+                                    <!-- Mobile menu -->
+                                    <ul>
+                                        <li>
+                                            <a href="./dashboard.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/dashboard-active-logo.png" alt=""></div>
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./history.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/history-active-logo.png" alt=""></div>
+                                                <span>History</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./balance.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/wallet-active-logo.png" alt=""></div>
+                                                <span>Balance</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./settings.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/setting-active-logo.png" alt=""></div>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="link-shortener.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/shortener-active-logo.png" alt=""></div>
+                                                <span>Link shortener</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-log-out-button">
+                                    <a href="#">
+                                        <img src="./img/log-out.png" alt="">
+                                        <span>Log out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-notification">
+                            <a class="notification-icon" href="#"><img src="./img/notification-icon.png" alt=""><span>24</span></a>
+                            <a class="user-icon" href="#"><img src="./img/user-icon.png" alt=""></a>
+                            <div class="send-options">
+                                <a class="send-button d-none d-lg-inline-block" href="#">Send<img src="./img/arrow-down.png" alt=""></a> <!-- desktop button -->
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#mobileSendOptionsModal" class="mobile-send-btn d-lg-none"><img src="./img/telegram-white-icon.png" alt=""></a> <!-- mobile button -->
+                                <!-- desktop send options -->
+                                <ul class="send-options-list">
+                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                    <li><a href="">Campaign</a></li>
+                                </ul>
+                                <!-- mobile send options -->
+                                <div class="modal" id="mobileSendOptionsModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                            <div class="mobile-send-option">
+                                                <h6>Send</h6>
+                                                <ul class="mobile-send-options-list">
+                                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                                    <li><a href="">Campaign</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container"> <!-- body content start -->
+                        <div class="sms-preview-div">
+                            <h4 class="d-lg-none mb-4">SMS preview</h4> <!-- mobile title -->
+                            <div class="single-campaign-status-sms">
+                                <div class="campaign-sms-header">
+                                    <div class="campaign-sms-from-to">
+                                        <h6>From</h6>
+                                        <p>+123454093</p>
+                                    </div>
+                                    <div class="campaign-sms-from-to">
+                                        <h6>To</h6>
+                                        <p>+123454093</p>
+                                    </div>
+                                    <div class="campaign-sms-date-time">
+                                        <img src="./img/calender-icon.png" alt="">
+                                        <span>18/01/23</span>
+                                    </div>
+                                    <div class="campaign-sms-date-time">
+                                        <img src="./img/clock-icon.png" alt="">
+                                        <span>1:10 PM</span>
+                                    </div>
+                                </div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <ul class="sms-preview-bottom-content">
+                                    <li><a href="#">Read text prompt</a></li>
+                                    <li><a href="#">Call forward</a></li>
+                                    <li><a href="#">SMS gateway</a></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="submit-btn">Continue</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- script file -->
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

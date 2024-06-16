@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send single voice SMS</title>
+
+<!--css file -->
+    <link rel="stylesheet" href="./css/gilroy.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stye.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex h-100">
+            <div class="left-container d-none d-lg-block"> <!-- Left container start -->
+                <div class="parent-menu-bar">
+                    <div class="menubar-logo">
+                        <a href="#"><img src="./img/logo-white.png" alt="logo"></a>
+                    </div>
+                    <nav class="parent-menu">
+                        <!-- desktop menu -->
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/dashboard-logo.png" alt="">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/history-logo.png" alt="">
+                                    <span>History</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/wallet-logo.png" alt="">
+                                    <span>Balance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/setting-logo.png" alt="">
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/shortener-logo.png" alt="">
+                                    <span>Link shortener</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="log-out-button mt-auto mb-4">
+                        <a href="#">
+                            <img src="./img/log-out.png" alt="">
+                            <span>Log out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-container gateway"> <!-- Right container start -->
+                <div class="parent-container">
+                    <div class="user-information"> <!-- top user interface -->
+                        <!-- desktop title -->
+                        <div class="welcome-user d-none d-lg-block">
+                            <a href="#" class="back-button">Back</a>
+                            <h4>Gateway servers</h4>
+                        </div>
+                        <div class="mobile-menu-bar d-flex d-lg-none">
+                            <div class="mobile-bars">
+                                <button class="mobile-menu-toggle" onclick="openMobileMenuSlider()">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="mobile-logo">
+                                <a href="#"><img src="./img/Logo.png" alt=""></a>
+                            </div>
+                            <div class="mobile-menu-slider">
+                                <button class="mobile-menu-slider-close-btn" onclick="closeMobileMenuSlider()"><img src="./img/close-icon-white.png" alt="close_icon"></button>
+                                <nav class="mobile-navmenu">
+                                    <!-- Mobile menu -->
+                                    <ul>
+                                        <li>
+                                            <a href="./dashboard.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/dashboard-active-logo.png" alt=""></div>
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./history.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/history-active-logo.png" alt=""></div>
+                                                <span>History</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./balance.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/wallet-active-logo.png" alt=""></div>
+                                                <span>Balance</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./settings.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/setting-active-logo.png" alt=""></div>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="link-shortener.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/shortener-active-logo.png" alt=""></div>
+                                                <span>Link shortener</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-log-out-button">
+                                    <a href="#">
+                                        <img src="./img/log-out.png" alt="">
+                                        <span>Log out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-notification">
+                            <a class="notification-icon" href="#"><img src="./img/notification-icon.png" alt=""><span>24</span></a>
+                            <a class="user-icon" href="#"><img src="./img/user-icon.png" alt=""></a>
+                            <div class="send-options">
+                                <a class="send-button d-none d-lg-inline-block" href="#">Send<img src="./img/arrow-down.png" alt=""></a> <!-- desktop button -->
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#mobileSendOptionsModal" class="mobile-send-btn d-lg-none"><img src="./img/telegram-white-icon.png" alt=""></a> <!-- mobile button -->
+                                <!-- desktop send options -->
+                                <ul class="send-options-list">
+                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                    <li><a href="">Campaign</a></li>
+                                </ul>
+                                <!-- mobile send options -->
+                                <div class="modal" id="mobileSendOptionsModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                            <div class="mobile-send-option">
+                                                <h6>Send</h6>
+                                                <ul class="mobile-send-options-list">
+                                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                                    <li><a href="">Campaign</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container"> <!-- body content start -->
+                        <div class="gateway-server-div">
+                            <!-- mobile title -->
+                            <div class="welcome-user d-lg-none">
+                                <a href="#" class="back-button">Back</a>
+                                <h4>Gateway servers</h4>
+                            </div>
+
+                            <div class="gateway-modal-button">
+                                <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#addGatewayModal">Add gateway</button>
+                            <!-- Modal content -->
+                                <div class="modal" id="addGatewayModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                            <div class="gateway-modal">
+                                                <h5>Add gateway</h5>
+                                                <form action="">
+                                                    <div class="half-width-field">
+                                                        <input type="text" name="" id="" placeholder="Route ID">
+                                                        <input type="text" name="" id="" placeholder="Route name">
+                                                    </div>
+                                                    <input type="text" name="" id="" placeholder="Route type">
+                                                    <input type="submit" value="Add gateway" class="submit-btn">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="responsive-width">
+                                <ul class="gateway-server-list">
+                                    <li class="gateway-server-list-header">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <h6>Route ID</h6>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <h6>Route name</h6>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <h6>Route type</h6>
+                                            </div>
+                                            <div class="server-speed">
+                                                <h6>Speed</h6>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <h6>Total sent</h6>
+                                            </div>
+                                            <div class="server-status">
+                                                <h6>Status</h6>
+                                            </div>
+                                            <div class="server-connection">
+                                                <h6>Connection</h6>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <h6>Added date</h6>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <h6>Actions</h6>
+                                        </div>
+                                    </li>
+                                <!-- list data -->
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="gateway-server-list-data">
+                                        <div class="server-list-data">
+                                            <div class="server-route-id">
+                                                <p>4</p>
+                                            </div>
+                                            <div class="server-route-name">
+                                                <p>Route 234</p>
+                                            </div>
+                                            <div class="server-route-type">
+                                                <p>PLUMSMS</p>
+                                            </div>
+                                            <div class="server-speed">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="server-total-sent">
+                                                <p>6000</p>
+                                            </div>
+                                            <div class="server-status">
+                                                <span class="not-avilable">Not available</span>
+                                            </div>
+                                            <div class="server-connection">
+                                                <span class="online">Online</span>
+                                            </div>
+                                            <div class="server-added-date">
+                                                <p>14-11-2011</p>
+                                            </div>
+                                        </div>
+                                        <div class="server-list-btn">
+                                            <a href="#"><img src="./img/arrow-circle.png" alt=""></a>
+                                            <a href="#"><img src="./img/setting-icon-black.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- script file -->
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+<!-- google font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!--css file -->
+    <link rel="stylesheet" href="./css/gilroy.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stye.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+<!-- Must include in head Chart.js for Chart -->
+    <script src="./js/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex h-100">
+            <div class="left-container d-none d-lg-block"> <!-- Left container start -->
+                <div class="parent-menu-bar">
+                    <div class="menubar-logo">
+                        <a href="#"><img src="./img/logo-white.png" alt="logo"></a>
+                    </div>
+                    <nav class="parent-menu">
+                        <!-- desktop menu -->
+                        <ul>
+                            <li class="active">
+                                <a href="./dashboard.html">
+                                    <img src="./img/dashboard-active-logo.png" alt="">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./history.html">
+                                    <img src="./img/history-logo.png" alt="">
+                                    <span>History</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./balance.html">
+                                    <img src="./img/wallet-logo.png" alt="">
+                                    <span>Balance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./settings.html">
+                                    <img src="./img/setting-logo.png" alt="">
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="link-shortener.html">
+                                    <img src="./img/shortener-logo.png" alt="">
+                                    <span>Link shortener</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="log-out-button mt-auto mb-4">
+                        <a href="#">
+                            <img src="./img/log-out.png" alt="">
+                            <span>Log out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-container"> <!-- Right container start -->
+                <div class="parent-container">
+                    <div class="user-information"> <!-- top user interface -->
+                        <!-- desktop title -->
+                        <div class="welcome-user d-none d-lg-block">
+                            <h4>Welcome back, Catherine!</h4>
+                        </div>
+                        <div class="mobile-menu-bar d-flex d-lg-none">
+                            <div class="mobile-bars">
+                                <button class="mobile-menu-toggle" onclick="openMobileMenuSlider()">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="mobile-logo">
+                                <a href="#"><img src="./img/Logo.png" alt=""></a>
+                            </div>
+                            <div class="mobile-menu-slider">
+                                <button class="mobile-menu-slider-close-btn" onclick="closeMobileMenuSlider()"><img src="./img/close-icon-white.png" alt="close_icon"></button>
+                                <nav class="mobile-navmenu">
+                                    <!-- Mobile menu -->
+                                    <ul>
+                                        <li>
+                                            <a href="./dashboard.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/dashboard-active-logo.png" alt=""></div>
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./history.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/history-active-logo.png" alt=""></div>
+                                                <span>History</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./balance.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/wallet-active-logo.png" alt=""></div>
+                                                <span>Balance</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./settings.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/setting-active-logo.png" alt=""></div>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="link-shortener.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/shortener-active-logo.png" alt=""></div>
+                                                <span>Link shortener</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-log-out-button">
+                                    <a href="#">
+                                        <img src="./img/log-out.png" alt="">
+                                        <span>Log out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-notification">
+                            <a class="notification-icon" href="#"><img src="./img/notification-icon.png" alt=""><span>24</span></a>
+                            <a class="user-icon" href="#"><img src="./img/user-icon.png" alt=""></a>
+                            <div class="send-options">
+                                <a class="send-button d-none d-lg-inline-block" href="#">Send<img src="./img/arrow-down.png" alt=""></a> <!-- desktop button -->
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#mobileSendOptionsModal" class="mobile-send-btn d-lg-none"><img src="./img/telegram-white-icon.png" alt=""></a> <!-- mobile button -->
+                                <!-- desktop send options -->
+                                <ul class="send-options-list">
+                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                    <li><a href="">Campaign</a></li>
+                                </ul>
+                                <!-- mobile send options -->
+                                <div class="modal" id="mobileSendOptionsModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                            <div class="mobile-send-option">
+                                                <h6>Send</h6>
+                                                <ul class="mobile-send-options-list">
+                                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                                    <li><a href="">Campaign</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container"> <!-- body content start -->
+                        <h4 class="mb-4 d-lg-none">Welcome back, Catherine!</h4> <!-- mobile title -->
+                        <div class="acount-information">
+                            <div class="row g-2 gx-lg-3">
+                                <div class="col-6 col-md-3">
+                                    <div class="single-account-data">
+                                        <div class="account-data-icons">
+                                            <img src="./img/balance_wallet.png" alt="">
+                                        </div>
+                                        <h5>$ 144.99</h5>
+                                        <p>Balance</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="single-account-data">
+                                        <div class="account-data-icons">
+                                            <img src="./img/sms-icon.png" alt="">
+                                        </div>
+                                        <h5>15</h5>
+                                        <p>Pending SMS</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="single-account-data">
+                                        <div class="account-data-icons">
+                                            <img src="./img/telegram-icon.png" alt="">
+                                        </div>
+                                        <h5>678,902</h5>
+                                        <p>Total sent</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="single-account-data">
+                                        <div class="account-data-icons">
+                                            <img src="./img/dollar-in-hand-icon.png" alt="">
+                                        </div>
+                                        <h5>$ 931.54</h5>
+                                        <p>Total spent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistics-chart">
+                            <!--  must include chart.js in end of the head -->
+                            <canvas id="daily_statistics_chart"></canvas>
+                            <script>
+                                // Chart Data Here
+                                // this variable name not changeable
+                                let daily_statistics_chart_data = {
+                                    labels: ['May 17', 'May 18', 'May 19', 'May 20', 'May 21', 'May 22', 'May 23'],
+                                    datasets: [{
+                                        label: 'Sent',   //This is tooltip text
+                                        data: [700, 300, 580, 58, 58, 58, 58],
+                                        backgroundColor: '#6434F8'
+                                    },
+                                    {
+                                        label: 'Responded',   //This is tooltip text
+                                        data: [270, 108, 220, 22, 22, 22, 22],
+                                        backgroundColor: '#FECB2E'
+                                    },
+                                    {
+                                        label: 'Rejected',    //This is tooltip text
+                                        data: [200, 100, 180, 18, 18, 180, 18],
+                                        backgroundColor: '#FD3460'
+                                    }]
+                                };
+                                // this variable name not changeable
+                                const statistics_chart = document.getElementById('daily_statistics_chart');
+                                const graphLabelMinValue = 0;         //input graph minimum value
+                                const graphLabelMaxValue = 700;       //input graph maximum value
+                            </script>
+                        </div>
+
+                        <div class="recent-campaigns-section">
+                            <div class="campaign-header">
+                                <h5>Recent campaigns</h5>
+                                <a class="view-all-button" href="#">View all</a>
+                            </div>
+                            <ul class="recent-campaigns-list">
+                                <li>
+                                    <div class="recent-campaigns-list-data">
+                                        <div class="creation-date">
+                                            <h6>Creation date</h6>
+                                            <p>14-01-2022</p>
+                                        </div>
+                                        <div class="campaign-name">
+                                            <h6>Campaign name</h6>
+                                            <p>Campaign 12345</p>
+                                        </div>
+                                        <div class="sender-id">
+                                            <h6>Sender ID</h6>
+                                            <p>123454329839</p>
+                                        </div>
+                                        <div class="message-div">
+                                            <h6>Message</h6>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        </div>
+                                        <div class="total-sms">
+                                            <h6>Total SMS</h6>
+                                            <p>12345</p>
+                                        </div>
+                                        <div class="campaign-status">
+                                            <h6>Campaign Status</h6>
+                                            <span class="in-progress">In progress</span>
+                                        </div>
+                                        <div class="total-sms-cost">
+                                            <h6>Total SMS cost</h6>
+                                            <p>12345</p>
+                                        </div>
+                                    </div>
+                                    <div class="download-sent-buttons">
+                                        <a href="#"><img src="./img/Download-btn-icon.png" alt=""></a>
+                                        <a href="#"><img src="./img/sent-btn-icon.png" alt=""></a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="recent-campaigns-list-data">
+                                        <div class="creation-date">
+                                            <h6>Creation date</h6>
+                                            <p>14-01-2022</p>
+                                        </div>
+                                        <div class="campaign-name">
+                                            <h6>Campaign name</h6>
+                                            <p>Campaign 12345</p>
+                                        </div>
+                                        <div class="sender-id">
+                                            <h6>Sender ID</h6>
+                                            <p>123454329839</p>
+                                        </div>
+                                        <div class="message-div">
+                                            <h6>Message</h6>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        </div>
+                                        <div class="total-sms">
+                                            <h6>Total SMS</h6>
+                                            <p>12345</p>
+                                        </div>
+                                        <div class="campaign-status">
+                                            <h6>Campaign Status</h6>
+                                            <span class="in-progress">In progress</span>
+                                        </div>
+                                        <div class="total-sms-cost">
+                                            <h6>Total SMS cost</h6>
+                                            <p>12345</p>
+                                        </div>
+                                    </div>
+                                    <div class="download-sent-buttons">
+                                        <a href="#"><img src="./img/Download-btn-icon.png" alt=""></a>
+                                        <a href="#"><img src="./img/sent-btn-icon.png" alt=""></a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="recent-campaigns-list-data">
+                                        <div class="creation-date">
+                                            <h6>Creation date</h6>
+                                            <p>14-01-2022</p>
+                                        </div>
+                                        <div class="campaign-name">
+                                            <h6>Campaign name</h6>
+                                            <p>Campaign 12345</p>
+                                        </div>
+                                        <div class="sender-id">
+                                            <h6>Sender ID</h6>
+                                            <p>123454329839</p>
+                                        </div>
+                                        <div class="message-div">
+                                            <h6>Message</h6>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        </div>
+                                        <div class="total-sms">
+                                            <h6>Total SMS</h6>
+                                            <p>12345</p>
+                                        </div>
+                                        <div class="campaign-status">
+                                            <h6>Campaign Status</h6>
+                                            <span class="in-progress">In progress</span>
+                                        </div>
+                                        <div class="total-sms-cost">
+                                            <h6>Total SMS cost</h6>
+                                            <p>12345</p>
+                                        </div>
+                                    </div>
+                                    <div class="download-sent-buttons">
+                                        <a href="#"><img src="./img/Download-btn-icon.png" alt=""></a>
+                                        <a href="#"><img src="./img/sent-btn-icon.png" alt=""></a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="recent-campaigns-list-data">
+                                        <div class="creation-date">
+                                            <h6>Creation date</h6>
+                                            <p>14-01-2022</p>
+                                        </div>
+                                        <div class="campaign-name">
+                                            <h6>Campaign name</h6>
+                                            <p>Campaign 12345</p>
+                                        </div>
+                                        <div class="sender-id">
+                                            <h6>Sender ID</h6>
+                                            <p>123454329839</p>
+                                        </div>
+                                        <div class="message-div">
+                                            <h6>Message</h6>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        </div>
+                                        <div class="total-sms">
+                                            <h6>Total SMS</h6>
+                                            <p>12345</p>
+                                        </div>
+                                        <div class="campaign-status">
+                                            <h6>Campaign Status</h6>
+                                            <span class="in-progress">In progress</span>
+                                        </div>
+                                        <div class="total-sms-cost">
+                                            <h6>Total SMS cost</h6>
+                                            <p>12345</p>
+                                        </div>
+                                    </div>
+                                    <div class="download-sent-buttons">
+                                        <a href="#"><img src="./img/Download-btn-icon.png" alt=""></a>
+                                        <a href="#"><img src="./img/sent-btn-icon.png" alt=""></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="sms-by-country">
+                            <h5>SMS by country</h5>
+                            <div class="sms-by-country-tab">
+                                <ul class="nav">
+                                    <li><a data-bs-toggle="tab" href="#today_doughnut" class="active">Today</a></li>
+                                    <li><a data-bs-toggle="tab" href="#this_week_doughnut">This week</a></li>
+                                    <li><a data-bs-toggle="tab" href="#this_month_doughnut">This month</a></li>
+                                    <li><a data-bs-toggle="tab" href="#this_year_doughnut">This year</a></li>
+                                    <li><a data-bs-toggle="tab" href="#all_time_doughnut">All time</a></li>
+                                </ul>
+
+                                <div class="tab-content"> <!-- tab content here -->
+                                    <!-- today -->
+                                    <div id="today_doughnut" class="tab-pane fade show active">
+                                        <div class="doughnut-chart">
+                                            <div class="chart-box">
+                                                <!--  must include chart.js in end of the head -->
+                                                <canvas id="today_sms_doughnut_chart"></canvas>
+                                                <script>
+                                                    // Today sms chart Data Here
+                                                    // this variable name not changeable
+                                                    const today_sms_doughnut_chart_data = {
+                                                        labels: ['Germany','Germany','Germany', 'Germany'],
+                                                        datasets: [{
+                                                            data: [3, 5, 3, 15],
+                                                            backgroundColor: ['#1FC944','#FECB2E','#FD3460','#800AF6']
+                                                        }]
+                                                    };
+                                                    // this variable name not changeable
+                                                    var today_sms_doughnut_chart = document.getElementById('today_sms_doughnut_chart').getContext('2d');
+                                                </script>
+                                            </div>
+                                            
+                                            <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                <div class="single-legend col-6">
+                                                    <span class="purple-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>15 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="red-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>3 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="yellow-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>5 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="green-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>3 SMS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- this week -->
+                                    <div id="this_week_doughnut" class="tab-pane fade">
+                                        <div class="doughnut-chart">
+                                            <div class="chart-box">
+                                                <!--  must include chart.js in end of the head -->
+                                                <canvas id="week_sms_doughnut_chart"></canvas>
+                                                <script>
+                                                    // Week sms chart Data Here
+                                                    // this variable name not changeable
+                                                    const week_sms_doughnut_chart_data = {
+                                                        labels: ['Germany','Germany','Germany', 'Germany'],
+                                                        datasets: [{
+                                                            data: [3, 10, 3, 30],
+                                                            backgroundColor: ['#1FC944','#FECB2E','#FD3460','#800AF6']
+                                                        }]
+                                                    };
+                                                    // this variable name not changeable
+                                                    var week_sms_doughnut_chart = document.getElementById('week_sms_doughnut_chart').getContext('2d');
+                                                </script>
+                                            </div>
+                                            
+                                            <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                <div class="single-legend col-6">
+                                                    <span class="purple-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="red-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>3 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="yellow-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>10 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="green-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>3 SMS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- this month -->
+                                    <div id="this_month_doughnut" class="tab-pane fade">
+                                        <div class="doughnut-chart">
+                                            <div class="chart-box">
+                                                <!--  must include chart.js in end of the head -->
+                                                <canvas id="month_sms_doughnut_chart"></canvas>
+                                                <script>
+                                                    // Month sms chart Data Here
+                                                    // this variable name not changeable
+                                                    const month_sms_doughnut_chart_data = {
+                                                        labels: ['Germany','Germany','Germany', 'Germany'],
+                                                        datasets: [{
+                                                            data: [30, 50, 30, 70],
+                                                            backgroundColor: ['#1FC944','#FECB2E','#FD3460','#800AF6']
+                                                        }]
+                                                    };
+                                                    // this variable name not changeable
+                                                    var month_sms_doughnut_chart = document.getElementById('month_sms_doughnut_chart').getContext('2d');
+                                                </script>
+                                            </div>
+                                            
+                                            <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                <div class="single-legend col-6">
+                                                    <span class="purple-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>70 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="red-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="yellow-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>50 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="green-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- this year -->
+                                    <div id="this_year_doughnut" class="tab-pane fade">
+                                        <div class="doughnut-chart">
+                                            <div class="chart-box">
+                                                <!--  must include chart.js in end of the head -->
+                                                <canvas id="year_sms_doughnut_chart"></canvas>
+                                                <script>
+                                                    // Year sms chart Data Here
+                                                    // this variable name not changeable
+                                                    const year_sms_doughnut_chart_data = {
+                                                        labels: ['Germany','Germany','Germany', 'Germany'],
+                                                        datasets: [{
+                                                            data: [30, 50, 30, 70],
+                                                            backgroundColor: ['#1FC944','#FECB2E','#FD3460','#800AF6']
+                                                        }]
+                                                    };
+                                                    // this variable name not changeable
+                                                    var year_sms_doughnut_chart = document.getElementById('year_sms_doughnut_chart').getContext('2d');
+                                                </script>
+                                            </div>
+                                            
+                                            <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                <div class="single-legend col-6">
+                                                    <span class="purple-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>70 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="red-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="yellow-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>50 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="green-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- all time -->
+                                    <div id="all_time_doughnut" class="tab-pane fade">
+                                        <div class="doughnut-chart">
+                                            <div class="chart-box">
+                                                <!--  must include chart.js in end of the head -->
+                                                <canvas id="all_sms_doughnut_chart"></canvas>
+                                                <script>
+                                                    // All sms time chart Data Here
+                                                    // this variable name not changeable
+                                                    const all_sms_doughnut_chart_data = {
+                                                        labels: ['Germany','Germany','Germany', 'Germany'],
+                                                        datasets: [{
+                                                            data: [30, 50, 30, 30],
+                                                            backgroundColor: ['#1FC944','#FECB2E','#FD3460','#800AF6']
+                                                        }]
+                                                    };
+                                                    // this variable name not changeable
+                                                    var all_sms_doughnut_chart = document.getElementById('all_sms_doughnut_chart').getContext('2d');
+                                                </script>
+                                            </div>
+                                            
+                                            <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                <div class="single-legend col-6">
+                                                    <span class="purple-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="red-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="yellow-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>50 SMS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single-legend col-6">
+                                                    <span class="green-circle"></span>
+                                                    <div class="legend-name">
+                                                        <h6>Germany</h6>
+                                                        <p>30 SMS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<!-- script file -->
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

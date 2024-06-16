@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance</title>
+
+<!-- google font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!--css file -->
+    <link rel="stylesheet" href="./css/gilroy.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stye.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex h-100">
+            <div class="left-container d-none d-lg-block"> <!-- Left container start -->
+                <div class="parent-menu-bar">
+                    <div class="menubar-logo">
+                        <a href="#"><img src="./img/logo-white.png" alt="logo"></a>
+                    </div>
+                    <nav class="parent-menu">
+                        <!-- desktop menu -->
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/dashboard-logo.png" alt="">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/history-logo.png" alt="">
+                                    <span>History</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <img src="./img/wallet-active-logo.png" alt="">
+                                    <span>Balance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/setting-logo.png" alt="">
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/shortener-logo.png" alt="">
+                                    <span>Link shortener</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="log-out-button mt-auto mb-4">
+                        <a href="#">
+                            <img src="./img/log-out.png" alt="">
+                            <span>Log out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-container"> <!-- Right container start -->
+                <div class="parent-container balance-container">
+                    <div class="user-information"> <!-- top user interface -->
+                        <!-- desktop title -->
+                        <div class="welcome-user d-none d-lg-block">
+                            <h4>Balance</h4>
+                        </div>
+                        <div class="mobile-menu-bar d-flex d-lg-none">
+                            <div class="mobile-bars">
+                                <button class="mobile-menu-toggle" onclick="openMobileMenuSlider()">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="mobile-logo">
+                                <a href="#"><img src="./img/Logo.png" alt=""></a>
+                            </div>
+                            <div class="mobile-menu-slider">
+                                <button class="mobile-menu-slider-close-btn" onclick="closeMobileMenuSlider()"><img src="./img/close-icon-white.png" alt="close_icon"></button>
+                                <nav class="mobile-navmenu">
+                                    <!-- Mobile menu -->
+                                    <ul>
+                                        <li>
+                                            <a href="./dashboard.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/dashboard-active-logo.png" alt=""></div>
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./history.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/history-active-logo.png" alt=""></div>
+                                                <span>History</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./balance.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/wallet-active-logo.png" alt=""></div>
+                                                <span>Balance</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./settings.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/setting-active-logo.png" alt=""></div>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="link-shortener.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/shortener-active-logo.png" alt=""></div>
+                                                <span>Link shortener</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-log-out-button">
+                                    <a href="#">
+                                        <img src="./img/log-out.png" alt="">
+                                        <span>Log out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-notification">
+                            <a class="notification-icon" href="#"><img src="./img/notification-icon.png" alt=""><span>24</span></a>
+                            <a class="user-icon" href="#"><img src="./img/user-icon.png" alt=""></a>
+                            <div class="send-options">
+                                <a class="send-button d-none d-lg-inline-block" href="#">Send<img src="./img/arrow-down.png" alt=""></a> <!-- desktop button -->
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#mobileSendOptionsModal" class="mobile-send-btn d-lg-none"><img src="./img/telegram-white-icon.png" alt=""></a> <!-- mobile button -->
+                                <!-- desktop send options -->
+                                <ul class="send-options-list">
+                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                    <li><a href="">Campaign</a></li>
+                                </ul>
+                                <!-- mobile send options -->
+                                <div class="modal" id="mobileSendOptionsModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                            <div class="mobile-send-option">
+                                                <h6>Send</h6>
+                                                <ul class="mobile-send-options-list">
+                                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                                    <li><a href="">Campaign</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container"> <!-- body content start -->
+                        <div class="balance-content-div">
+                            <h4 class="d-lg-none mb-3">Statistics</h4>
+                            <h6 class="d-none d-lg-block">Add fund history</h6>
+                            <div class="row g-0 balance-funds-modal flex-column-reverse  flex-md-row">
+                                <div class="col-md-auto">
+                                    <div class="current-balance">
+                                        <h5>$ 144.99</h5>
+                                        <h6>Current balance</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-auto">
+                                    <div class="funds-modal">
+                                        <button type="button" class="funds-modal-btn" data-bs-toggle="modal" data-bs-target="#addFundsModal">Add funds</button>
+
+                                        <!-- Modal content -->
+                                        <div class="modal" id="addFundsModal">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                                    <div class="add-funds-modal">
+                                                        <h5>Add funds</h5>
+                                                        <form onsubmit="event.preventDefault(); checkPaymentMethod()">
+                                                            <select id="selctPaymentMethod" name="" form="">
+                                                                <option value=""  disabled selected hidden>Select payment method</option> <!-- Only for label -->
+                                                                <option value="pay_with_crypto">Pay with crypto</option>
+                                                                <option value="">No options here 2</option>
+                                                                <option value="">No options here 3</option>
+                                                            </select> 
+                                                            <div class="amound-input-field">
+                                                                <input type="text" name="" id="" placeholder="Amount">
+                                                                <select id="" name="" form="">
+                                                                    <option value="" selected>USD</option> <!-- Only for label -->
+                                                                    <option value="">EUR</option>
+                                                                    <option value="">GBP</option>
+                                                                </select>
+                                                            </div>
+                                                            <input type="submit" value="Add funds">
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pay with crypto Modal content -->
+                                        <div class="modal" id="payWithCryptoModal">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                                    <div class="pay-with-crypto-modal">
+                                                        <h5>Invoice 139849231813</h5>
+                                                        <img src="./img/crypto-qr-code.png" alt="">
+                                                        <div class="pay-amound">
+                                                            <span class="amound-txt">Amount</span>
+                                                            <span>0.0403312340298</span>
+                                                        </div>
+                                                        <p>3jkdcso4928yhsUhdnGHYTUWI</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="responsive-width">
+                                <ul class="add-funds-history">
+                                    <li class="funds-history-header">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <h6>Phone number</h6>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <h6>Date & time</h6>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <h6>Payment method</h6>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <h6>Amount</h6>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <h6>Actions</h6>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="funds-history-list">
+                                        <div class="funds-history-data">
+                                            <div class="funds-phone-number">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="funds-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="funds-payment-method">
+                                                <p>VISA *0912</p>
+                                            </div>
+                                            <div class="funds-amount">
+                                                <p>$145.66</p>
+                                            </div>
+                                        </div>
+                                        <div class="funds-history-btns">
+                                            <a href="#"><img src="./img/upload-icon.png" alt=""></a>
+                                            <a href="#"><img src="./img/delete-icon.png" alt=""></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pagination-nav">
+                                <a href="#" class="prev-btn"><img src="./img/arrow-left-black.png" alt=""></a>
+                                <span>1</span>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#" class="next-btn"><img src="./img/arrow-right-black.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<!-- script file -->
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

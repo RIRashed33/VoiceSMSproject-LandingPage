@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+
+<!--css file -->
+    <link rel="stylesheet" href="./css/gilroy.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stye.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+<!-- Must Include chart.js for Response-chart -->
+    <script src="./js/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex h-100">
+            <div class="left-container d-none d-lg-block"> <!-- Left container start -->
+                <div class="parent-menu-bar">
+                    <div class="menubar-logo">
+                        <a href="#"><img src="./img/logo-white.png" alt="logo"></a>
+                    </div>
+                    <nav class="parent-menu">
+                        <!-- desktop menu -->
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/dashboard-logo.png" alt="">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/history-logo.png" alt="">
+                                    <span>History</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/wallet-logo.png" alt="">
+                                    <span>Balance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/setting-logo.png" alt="">
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/shortener-logo.png" alt="">
+                                    <span>Link shortener</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="log-out-button mt-auto mb-4">
+                        <a href="#">
+                            <img src="./img/log-out.png" alt="">
+                            <span>Log out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-container"> <!-- Right container start -->
+                <div class="parent-container history-container">
+                    <div class="user-information"> <!-- top user interface -->
+                        <!-- desktop title -->
+                        <div class="welcome-user d-none d-lg-block">
+                            <a href="#" class="back-button">Back</a>
+                            <h4>Statistics</h4>
+                        </div>
+                        <div class="mobile-menu-bar d-flex d-lg-none">
+                            <div class="mobile-bars">
+                                <button class="mobile-menu-toggle" onclick="openMobileMenuSlider()">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="mobile-logo">
+                                <a href="#"><img src="./img/Logo.png" alt=""></a>
+                            </div>
+                            <div class="mobile-menu-slider">
+                                <button class="mobile-menu-slider-close-btn" onclick="closeMobileMenuSlider()"><img src="./img/close-icon-white.png" alt="close_icon"></button>
+                                <nav class="mobile-navmenu">
+                                    <!-- Mobile menu -->
+                                    <ul>
+                                        <li>
+                                            <a href="./dashboard.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/dashboard-active-logo.png" alt=""></div>
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./history.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/history-active-logo.png" alt=""></div>
+                                                <span>History</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./balance.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/wallet-active-logo.png" alt=""></div>
+                                                <span>Balance</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="./settings.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/setting-active-logo.png" alt=""></div>
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="link-shortener.html">
+                                                <div class="mobile-menu-icon-width"><img src="./img/shortener-active-logo.png" alt=""></div>
+                                                <span>Link shortener</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="mobile-log-out-button">
+                                    <a href="#">
+                                        <img src="./img/log-out.png" alt="">
+                                        <span>Log out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-notification">
+                            <a class="notification-icon" href="#"><img src="./img/notification-icon.png" alt=""><span>24</span></a>
+                            <a class="user-icon" href="#"><img src="./img/user-icon.png" alt=""></a>
+                            <div class="send-options">
+                                <a class="send-button d-none d-lg-inline-block" href="#">Send<img src="./img/arrow-down.png" alt=""></a> <!-- desktop button -->
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#mobileSendOptionsModal" class="mobile-send-btn d-lg-none"><img src="./img/telegram-white-icon.png" alt=""></a> <!-- mobile button -->
+                                <!-- desktop send options -->
+                                <ul class="send-options-list">
+                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                    <li><a href="">Campaign</a></li>
+                                </ul>
+                                <!-- mobile send options -->
+                                <div class="modal" id="mobileSendOptionsModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><img src="./img/moadal-close-icon.png" alt=""></button>
+                                            <div class="mobile-send-option">
+                                                <h6>Send</h6>
+                                                <ul class="mobile-send-options-list">
+                                                    <li><a href="./send-bulk-voice-sms.html">Bulk voice SMS</a></li>
+                                                    <li><a href="./send-single-voice-sms.html">Single voice SMS</a></li>
+                                                    <li><a href="">Campaign</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container"> <!-- body content start -->
+                        <div class="statistics-content-div">
+                            <div class="welcome-user d-lg-none">
+                                <a href="#" class="back-button">Back</a>
+                                <h4>Statistics</h4>
+                            </div>
+                            <h6 class="d-none d-lg-block">Voice SMS result statistics</h6>
+                            <div class="sms-by-country response-data">
+                                <h5>Response data</h5>
+                                <div class="sms-by-country-tab">
+                                    <ul class="nav">
+                                        <li><a data-bs-toggle="tab" href="#today_response_doughnut" class="active">Today</a></li>
+                                        <li><a data-bs-toggle="tab" href="#this_week_response_doughnut">This week</a></li>
+                                        <li><a data-bs-toggle="tab" href="#this_month_response_doughnut">This month</a></li>
+                                        <li><a data-bs-toggle="tab" href="#this_year_response_doughnut">This year</a></li>
+                                        <li><a data-bs-toggle="tab" href="#all_time_response_doughnut">All time</a></li>
+                                    </ul>
+    
+                                    <div class="tab-content"> <!-- tab content here -->
+                                        <!-- today -->
+                                        <div id="today_response_doughnut" class="tab-pane fade show active">
+                                            <div class="doughnut-chart">
+                                                <div class="chart-box">
+                                                    <!--  must include chart.js in end of the head -->
+                                                    <canvas id="today_response_doughnut_chart"></canvas>
+                                                    <script>
+                                                        // Today response chart Data Here
+                                                        // this variable name not changeable
+                                                        const today_response_doughnut_chart_data = {
+                                                            labels: ['Not responded','In progress','Responded'],
+                                                            datasets: [{
+                                                                data: [3, 5, 15],
+                                                                backgroundColor: ['#FECB2E','#FD3460','#800AF6']
+                                                            }]
+                                                        };
+                                                        // this variable name not changeable
+                                                        var today_response_doughnut_chart = document.getElementById('today_response_doughnut_chart').getContext('2d');
+                                                    </script>
+                                                </div>
+                                                
+                                                <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                    <div class="single-legend col-6">
+                                                        <span class="purple-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Responded</h6>
+                                                            <p>15 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="red-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Not responded</h6>
+                                                            <p>3 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="yellow-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>In progress</h6>
+                                                            <p>5 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- this week -->
+                                        <div id="this_week_response_doughnut" class="tab-pane fade">
+                                            <div class="doughnut-chart">
+                                                <div class="chart-box">
+                                                    <!--  must include chart.js in end of the head -->
+                                                    <canvas id="week_response_doughnut_chart"></canvas>
+                                                    <script>
+                                                        // Week response chart Data Here
+                                                        // this variable name not changeable
+                                                        const week_response_doughnut_chart_data = {
+                                                            labels: ['Not responded','In progress','Responded'],
+                                                            datasets: [{
+                                                                data: [6, 10, 20],
+                                                                backgroundColor: ['#FECB2E','#FD3460','#800AF6']
+                                                            }]
+                                                        };
+                                                        // this variable name not changeable
+                                                        var week_response_doughnut_chart = document.getElementById('week_response_doughnut_chart').getContext('2d');
+                                                    </script>
+                                                </div>
+                                                
+                                                <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                    <div class="single-legend col-6">
+                                                        <span class="purple-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Responded</h6>
+                                                            <p>20 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="red-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Not responded</h6>
+                                                            <p>6 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="yellow-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>In progress</h6>
+                                                            <p>10 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- this month -->
+                                        <div id="this_month_response_doughnut" class="tab-pane fade">
+                                            <div class="doughnut-chart">
+                                                <div class="chart-box">
+                                                    <!--  must include chart.js in end of the head -->
+                                                    <canvas id="month_response_doughnut_chart"></canvas>
+                                                    <script>
+                                                        // Month response chart Data Here
+                                                        // this variable name not changeable
+                                                        const month_response_doughnut_chart_data = {
+                                                            labels: ['Not responded','In progress','Responded'],
+                                                            datasets: [{
+                                                                data: [3, 5, 15],
+                                                                backgroundColor: ['#FECB2E','#FD3460','#800AF6']
+                                                            }]
+                                                        };
+                                                        // Get the canvas element
+                                                        // this variable name not changeable
+                                                        var month_response_doughnut_chart = document.getElementById('month_response_doughnut_chart').getContext('2d');
+                                                    </script>
+                                                </div>
+                                                
+                                                <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                    <div class="single-legend col-6">
+                                                        <span class="purple-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Responded</h6>
+                                                            <p>15 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="red-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Not responded</h6>
+                                                            <p>3 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="yellow-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>In progress</h6>
+                                                            <p>5 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- this year -->
+                                        <div id="this_year_response_doughnut" class="tab-pane fade">
+                                            <div class="doughnut-chart">
+                                                <div class="chart-box">
+                                                    <!--  must include chart.js in end of the head -->
+                                                    <canvas id="year_response_doughnut_chart"></canvas>
+                                                    <script>
+                                                        // Year response chart Data Here
+                                                        // this variable name not changeable
+                                                        const year_response_doughnut_chart_data = {
+                                                            labels: ['Not responded','In progress','Responded'],
+                                                            datasets: [{
+                                                                data: [9, 25, 225],
+                                                                backgroundColor: ['#FECB2E','#FD3460','#800AF6']
+                                                            }]
+                                                        };
+                                                        // Get the canvas element
+                                                        // this variable name not changeable
+                                                        var year_response_doughnut_chart = document.getElementById('year_response_doughnut_chart').getContext('2d');
+                                                    </script>
+                                                </div>
+                                                
+                                                <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                    <div class="single-legend col-6">
+                                                        <span class="purple-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Responded</h6>
+                                                            <p>225 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="red-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Not responded</h6>
+                                                            <p>9 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="yellow-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>In progress</h6>
+                                                            <p>25 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- all time -->
+                                        <div id="all_time_response_doughnut" class="tab-pane fade">
+                                            <div class="doughnut-chart">
+                                                <div class="chart-box">
+                                                    <!--  must include chart.js in end of the head -->
+                                                    <canvas id="all_response_doughnut_chart"></canvas>
+                                                    <script>
+                                                        // All response time chart Data Here
+                                                        // this variable name not changeable
+                                                        const all_response_doughnut_chart_data = {
+                                                            labels: ['Not responded','In progress','Responded'],
+                                                            datasets: [{
+                                                                data: [300, 500, 1000],
+                                                                backgroundColor: ['#FECB2E','#FD3460','#800AF6']
+                                                            }]
+                                                        };
+                                                        // this variable name not changeable
+                                                        var all_response_doughnut_chart = document.getElementById('all_response_doughnut_chart').getContext('2d');
+                                                    </script>
+                                                </div>
+                                                
+                                                <div class="chart-legends row g-0"> <!-- chart legend -->
+                                                    <div class="single-legend col-6">
+                                                        <span class="purple-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Responded</h6>
+                                                            <p>1000 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="red-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>Not responded</h6>
+                                                            <p>30 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-legend col-6">
+                                                        <span class="yellow-circle"></span>
+                                                        <div class="legend-name">
+                                                            <h6>In progress</h6>
+                                                            <p>50 SMS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="important-response">
+                                <h5>Important response</h5>
+                                <div class="responsive-width">
+                                    <ul class="important-response-list">
+                                        <li class="important-response-list-header">
+                                            <div class="response-from">
+                                                <h6>From</h6>
+                                            </div>
+                                            <div class="response-to">
+                                                <h6>To</h6>
+                                            </div>
+                                            <div class="response-date-time">
+                                                <h6>Date & time</h6>
+                                            </div>
+                                            <div class="response-message">
+                                                <h6>Message</h6>
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="important-response-list-data">
+                                            <div class="response-from">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="response-to">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="response-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="response-message">
+                                                <p>Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                            </div>
+                                        </li>
+
+                                        <li class="important-response-list-data">
+                                            <div class="response-from">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="response-to">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="response-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="response-message">
+                                                <p>Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                            </div>
+                                        </li>
+
+                                        <li class="important-response-list-data">
+                                            <div class="response-from">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="response-to">
+                                                <p>+123454093</p>
+                                            </div>
+                                            <div class="response-date-time">
+                                                <p><span class="date">18/01/23</span><span class="time">1:10 PM</span></p>
+                                            </div>
+                                            <div class="response-message">
+                                                <p>Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<!-- script file -->
+    <script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
